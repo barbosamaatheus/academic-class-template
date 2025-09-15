@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disciplina Universitária | Lotus Dark</title>
+  <title>Analise e Projetos de Sistemas</title>
   <style>
     * {
       margin: 0;
@@ -13,17 +13,17 @@
     }
 
     :root {
-      --primary-bg: #0f0f0f;
-      --secondary-bg: #1a1a1a;
-      --accent-bg: #2a2a2a;
-      --primary-text: #e8e8e8;
-      --secondary-text: #b8b8b8;
-      --accent-color: #64ffda;
-      --secondary-accent: #ff6b9d;
-      --tertiary-accent: #ffd93d;
-      --hover-color: #3a3a3a;
-      --glass-bg: rgba(42, 42, 42, 0.8);
-      --border-color: #333;
+      --primary-bg: #1e1e1e;
+      --secondary-bg: #252526;
+      --accent-bg: #2d2d30;
+      --primary-text: #cccccc;
+      --secondary-text: #9d9d9d;
+      --accent-color: #569cd6;
+      --secondary-accent: #4fc1ff;
+      --tertiary-accent: #dcdcaa;
+      --hover-color: #2a2d2e;
+      --glass-bg: rgba(37, 37, 38, 0.9);
+      --border-color: #3e3e42;
     }
 
     body {
@@ -544,6 +544,15 @@
       .cards-grid {
         grid-template-columns: 1fr;
       }
+
+      .no-link-style {
+        color: inherit;
+        /* Mantém a cor do texto ao redor */
+        text-decoration: none;
+        /* Remove o sublinhado */
+        cursor: default;
+        /* Cursor normal, não a mãozinha */
+      }
     }
   </style>
 </head>
@@ -552,13 +561,14 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo">Lotus Dark</div>
+      <div class="logo">APS</div>
       <ul class="nav-menu">
         <li><a href="#sobre" class="nav-link">Sobre</a></li>
         <li><a href="#conteudos" class="nav-link">Conteúdos</a></li>
         <li><a href="#materiais" class="nav-link">Materiais</a></li>
         <li><a href="#plano" class="nav-link">Plano</a></li>
-        <li><a href="#lives" class="nav-link">Lives</a></li>
+        <li><a href="/docs" class="nav-link">Docs</a></li>
+        <!--    <li><a href="#lives" class="nav-link">Lives</a></li>  -->
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
       <div class="hamburger">
@@ -571,12 +581,14 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <h1 class="hero-title">Algoritmos e Estruturas de Dados</h1>
-    <p class="hero-subtitle">Ciência da Computação - 2º Período</p>
+    <h1 class="hero-title">Analise e Projeto de Sistemas</h1>
+    <p class="hero-subtitle">Ciência da Computação - 6º Período</p>
     <p class="hero-description">
-      Explore o fascinante mundo dos algoritmos e estruturas de dados fundamentais.
-      Desenvolva habilidades essenciais para resolver problemas complexos de forma eficiente
-      e elegante através de uma abordagem prática e teórica equilibrada.
+      Nesta disciplina, você vai explorar os pilares do desenvolvimento de software moderno.
+      Aprenda a projetar sistemas robustos e escaláveis utilizando **Programação Orientada a Objetos (POO)**,
+      aplicando os princípios do **GRASP** para distribuir responsabilidades de forma eficiente e
+      utilizando **Design Patterns** para soluções elegantes e reutilizáveis.
+      Desenvolva habilidades práticas para transformar ideias em sistemas bem estruturados e de fácil manutenção.
     </p>
     <a href="#sobre" class="btn">Começar Jornada</a>
   </section>
@@ -589,18 +601,23 @@
     <div class="cards-grid">
       <div class="card">
         <h3>🎯 Objetivos</h3>
-        <p>Dominar conceitos fundamentais de algoritmos, análise de complexidade e estruturas de dados básicas e
-          avançadas para desenvolvimento de soluções computacionais otimizadas.</p>
+        <p>OO objetivo da disciplina é capacitar os alunos a desenvolver sistemas robustos, reutilizáveis e fáceis de
+          manter, utilizando Programação Orientada a Objetos, princípios SOLID, GRASP e Design Patterns. Por meio de
+          projetos práticos, os conceitos teóricos são aplicados em cenários reais, consolidando o aprendizado de
+          análise e projeto de software.</p>
       </div>
       <div class="card">
         <h3>🧠 Metodologia</h3>
-        <p>Combinação de teoria sólida com prática intensiva. Aulas expositivas, exercícios práticos, projetos
-          individuais e avaliações que simulam desafios reais da programação.</p>
+        <p>A disciplina combina teoria e prática em todas as aulas. Cada encontro apresenta conceitos que são
+          imediatamente aplicados em um projeto individual, que evolui ao longo do curso, permitindo aplicar princípios
+          de design, padrões GRASP, modelagem arquitetural e Design Patterns em situações reais.</p>
       </div>
       <div class="card">
         <h3>💡 Competências</h3>
-        <p>Análise algorítmica, implementação de estruturas de dados, otimização de código, resolução de problemas
-          computacionais e pensamento lógico estruturado.</p>
+        <p>Ao final da disciplina, os alunos serão capazes de analisar requisitos, projetar soluções orientadas a
+          objetos usando padrões de responsabilidade e projeto, e desenvolver software com reutilização, coesão e baixo
+          acoplamento. Também estarão aptos a projetar arquiteturas em camadas, compreender microsserviços e APIs
+          RESTful, e aplicar Design Patterns e princípios SOLID de forma prática e eficiente.</p>
       </div>
     </div>
   </section>
@@ -611,18 +628,21 @@
     <p class="section-subtitle">Módulos organizados para maximizar seu aprendizado</p>
 
     <ul class="content-list">
-      <li>Introdução à Análise de Algoritmos</li>
-      <li>Notação Big O e Complexidade</li>
-      <li>Arrays e Listas Lineares</li>
-      <li>Pilhas e Filas</li>
-      <li>Listas Ligadas e Variações</li>
-      <li>Algoritmos de Ordenação</li>
-      <li>Algoritmos de Busca</li>
-      <li>Árvores Binárias e AVL</li>
-      <li>Grafos e Algoritmos</li>
-      <li>Hash Tables e Mapeamento</li>
-      <li>Recursão e Programação Dinâmica</li>
-      <li>Algoritmos Gulosos</li>
+      <li><a href="docs/classes/01/" class="no-link-style">Programação Orientada a Objetos</a></li>
+      <li><a href="docs/classes/02/" class="no-link-style">Visibilidade e Encapsulamento</a></li>
+      <li><a href="docs/classes/03/" class="no-link-style">Relacionamento Entre Classes e Herança</a></li>
+      <li><a href="docs/classes/04/" class="no-link-style">Polimorfismo</a></li>
+      <li><a href="docs/classes/05/" class="no-link-style">Tratamento de Exceções</a></li>
+      <li><a href="docs/classes/06/" class="no-link-style">Teste Automático de Software</a></li>
+      <li><a href="docs/classes/07/" class="no-link-style">Arquitetura de Software Moderna</a></li>
+      <li><a href="docs/classes/08/" class="no-link-style">Evolução e refatoração</a></li>
+      <li><a href="docs/classes/09/" class="no-link-style">Projetando Software com Responsabilidade</a></li>
+      <li><a href="docs/classes/10/" class="no-link-style">Padrões GRASP avançados</a></li>
+      <li><a href="docs/classes/11/" class="no-link-style">Princípios S.O.L.I.D</a></li>
+      <li><a href="docs/classes/12/" class="no-link-style">Padrões de projeto criacionais</a></li>
+      <li><a href="docs/classes/13/" class="no-link-style">Padrões de projeto estruturais</a></li>
+      <li><a href="docs/classes/14/" class="no-link-style">Padrões de projeto comportamentais</a></li>
+
     </ul>
   </section>
 
@@ -636,37 +656,45 @@
         <div class="material-icon">🎧</div>
         <h4>Áudios</h4>
         <p>Podcasts e explicações em áudio</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <a href="https://open.spotify.com/show/2S2jCiaoW1zB7VfNoo397W?si=e9NYao9pRyGCar44jzbP9g"
+          class="btn btn-secondary">Acessar</a>
       </div>
       <div class="material-item">
         <div class="material-icon">📹</div>
         <h4>Vídeos</h4>
-        <p>Video-aulas e demonstrações práticas</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <p>Video-aulas e explicações práticas</p>
+        <a href="https://open.spotify.com/show/2S2jCiaoW1zB7VfNoo397W?si=e9NYao9pRyGCar44jzbP9g"
+          class="btn btn-secondary">Acessar</a>
       </div>
       <div class="material-item">
         <div class="material-icon">📊</div>
-        <h4>Slides</h4>
-        <p>Apresentações das aulas teóricas</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <h4>Aulas</h4>
+        <p>Slides, resumos, e muito mais</p>
+        <a href="/docs/classes" class="btn btn-secondary">Acessar</a>
       </div>
       <div class="material-item">
-        <div class="material-icon">📝</div>
-        <h4>Resumos</h4>
-        <p>Sínteses dos conteúdos principais</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <div class="material-icon">🔗</div>
+        <h4>Links</h4>
+        <p>Portais e recursos online relevantes</p>
+        <a href="/docs/resources/links" class="btn btn-secondary">Acessar</a>
       </div>
       <div class="material-item">
         <div class="material-icon">⚡</div>
         <h4>Atividades</h4>
         <p>Exercícios e projetos práticos</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <a href="/docs/activities/" class="btn btn-secondary">Acessar</a>
       </div>
       <div class="material-item">
         <div class="material-icon">📚</div>
         <h4>Bibliografia</h4>
         <p>Livros e artigos recomendados</p>
-        <a href="#" class="btn btn-secondary">Acessar</a>
+        <a href="docs/resources/books" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">🛠️</div>
+        <h4>Ferramentas</h4>
+        <p>Softwares e recursos úteis para desenvolvimento</p>
+        <a href="docs/resources/tools" class="btn btn-secondary">Acessar</a>
       </div>
     </div>
   </section>
@@ -679,38 +707,26 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-content">
-          <h4>Semanas 1-2: Fundamentos</h4>
-          <p>Introdução aos algoritmos, análise de complexidade e notação Big O</p>
+          <h4>Unidade 1</h4>
+          <p>Revisão de Java, introdução ao desenvolvimento de projetos, tratamento de exceções e testes</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-content">
-          <h4>Semanas 3-5: Estruturas Lineares</h4>
-          <p>Arrays, listas, pilhas e filas. Implementações e aplicações práticas</p>
+          <h4>Unidade 2</h4>
+          <p>Code smells e refatoração, padrões GRASP, princípios SOLID e fundamentos de arquitetura de software</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-content">
-          <h4>Semanas 6-8: Ordenação e Busca</h4>
-          <p>Algoritmos clássicos de ordenação e técnicas de busca eficiente</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h4>Semanas 9-12: Árvores</h4>
-          <p>Estruturas hierárquicas, árvores binárias, balanceamento e aplicações</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h4>Semanas 13-16: Grafos e Avançado</h4>
-          <p>Teoria dos grafos, algoritmos avançados e programação dinâmica</p>
+          <h4>Unidade 3</h4>
+          <p>Padrões de projeto, com foco em aplicação prática em problemas específicos</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lives Section -->
+  <!-- Lives Section
   <section id="lives">
     <h2 class="section-title">Aulas ao Vivo</h2>
     <p class="section-subtitle">Participe das sessões interativas e tire suas dúvidas em tempo real</p>
@@ -746,7 +762,7 @@
       <a href="#" class="btn btn-secondary">Ver Todas as Lives</a>
     </div>
   </section>
-
+ -->
   <!-- Contato Section -->
   <section id="contato">
     <h2 class="section-title">Contato & Dúvidas</h2>
@@ -756,9 +772,9 @@
       <div class="contact-item">
         <div class="contact-icon">👨‍🏫</div>
         <h4>Professor Responsável</h4>
-        <p><strong>Dr. João Silva</strong></p>
-        <p>joao.silva@universidade.edu</p>
-        <p>Sala 301 - Bloco A</p>
+        <p><strong>Ms. Matheus Barbosa</strong></p>
+        <p>matheus.barbosa@dcx.ufpb.br</p>
+        <a href="https://github.com/barbosamaatheus">barbosamaatheus</a>
       </div>
 
       <div class="contact-item">
@@ -779,9 +795,8 @@
 
       <div class="contact-item">
         <div class="contact-icon">📧</div>
-        <h4>Lista de Emails</h4>
-        <p><strong>Comunicação Oficial</strong></p>
-        <p>algoritmos2024@listas.edu</p>
+        <h4>Comunicação Oficial</h4>
+        <p>SIGAA</p>
         <p>Avisos importantes</p>
       </div>
     </div>

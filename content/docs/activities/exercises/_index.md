@@ -1,5 +1,6 @@
 ---
 weight: 200
+weight: 1
 title: "Exercicios"
 description: "Coleção de exercícios práticos e desafios para reforço dos conteúdos da disciplina"
 icon: "folder"

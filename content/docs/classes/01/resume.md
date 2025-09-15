@@ -19,7 +19,7 @@ ai_warning: "Conteúdo gerado com inteligência artificial. Pode conter imprecis
 🎥 [Vídeo no Spotify](https://open.spotify.com/episode/5lxtq43Ko0gbhK4Lyk8zZ2) — gerado por IA com resumos do conteudo.  
 Útil para uma revisão rápida dos temas tratados na disciplina.
 
-<iframe src="https://open.spotify.com/embed/episode/5lxtq43Ko0gbhK4Lyk8zZ2" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/embed/episode/5eHMwAlKNvebcWIMPD63na" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 # 1. Evolução da Programação
 
