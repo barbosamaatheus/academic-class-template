@@ -17,7 +17,8 @@ Fique à vontade para sugerir novos links via _Pull Request_ ou _Issue_.
 
 ## Documentação Oficial
 
-- [Java Documentation](https://docs.oracle.com/javase/8/docs/) – Referência oficial da linguagem Java.
+- [Documentação Java](https://docs.oracle.com/javase/tutorial/)
+- [JUnit](http://junit.org/) para testes automatizados
 - [MDN Web Docs](https://developer.mozilla.org/) – Referência completa sobre tecnologias web.
 
 ---
