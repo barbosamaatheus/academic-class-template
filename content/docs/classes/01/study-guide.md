@@ -2,7 +2,6 @@
 weight: 200
 weight: 4
 title: "Guia de Estudo"
-description: "Guia de Estudo: Programação Orientada a Objetos"
 icon: "folder"
 date: "2025-09-15T00:34:57+01:00"
 lastmod: "2025-09-15T00:34:57+01:00"

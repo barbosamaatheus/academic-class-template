@@ -2,7 +2,6 @@
 weight: 200
 weight: 1
 title: "Resumo: Programação Orientada a Objetos"
-description: "Este documento detalha os principais temas, ideias e fatos sobre a Programação Orientada a Objetos (POO), baseando-se nos materiais fornecidos."
 icon: "folder"
 date: "2025-09-15T00:34:57+01:00"
 lastmod: "2025-09-15T00:34:57+01:00"

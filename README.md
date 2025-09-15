@@ -23,8 +23,6 @@ git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 cd SEU_REPOSITORIO
 ```
 
-````
-
 2. Instale dependências (se houver):
 
 ```bash
@@ -91,4 +89,3 @@ Sinta-se à vontade para abrir issues ou pull requests. Toda ajuda é bem-vinda!
 ## 📄 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
-````
