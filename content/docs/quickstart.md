@@ -1,13 +1,14 @@
 ---
 weight: 100
-date: "2023-05-03T22:37:22+01:00"
+date: "2025-09-15T00:34:57+01:00"
+lastmod: "2025-09-15T00:34:57+01:00"
+publishdate: "2025-09-15T00:34:57+01:00"
 draft: false
 author: "Matheus Barbosa"
 title: "Noma da Discipliana"
 icon: "rocket_launch"
 toc: true
 description: "A quickstart guide to creating new content in Lotus Docs"
-publishdate: "2023-05-03T22:37:22+01:00"
 tags: ["Beginners"]
 ---
 

@@ -3,8 +3,8 @@ weight: 200
 title: "Links Uteis"
 description: "Coleção de links, cursos, ferramentas e referências úteis para estudos de programação, Java, Git e orientação a objetos."
 icon: "link"
-date: "2023-05-22T00:34:57+01:00"
-lastmod: "2023-05-22T00:34:57+01:00"
+date: "2025-09-15T00:34:57+01:00"
+lastmod: "2025-09-15T00:34:57+01:00"
 draft: false
 ---
 
