@@ -20,6 +20,10 @@ defaultContentLanguage = 'en'
     languageName = "Deutsch"
     contentDir = "content/de"
     weight = 30
+    
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
 
 [module]
   [module.hugoVersion]

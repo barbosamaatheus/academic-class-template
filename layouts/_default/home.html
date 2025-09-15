@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disciplina Universitária | Lotus Dark</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-bg: #0f0f0f;
+      --secondary-bg: #1a1a1a;
+      --accent-bg: #2a2a2a;
+      --primary-text: #e8e8e8;
+      --secondary-text: #b8b8b8;
+      --accent-color: #64ffda;
+      --secondary-accent: #ff6b9d;
+      --tertiary-accent: #ffd93d;
+      --hover-color: #3a3a3a;
+      --glass-bg: rgba(42, 42, 42, 0.8);
+      --border-color: #333;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Background gradient animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(100, 255, 218, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 157, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 217, 61, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      33% {
+        transform: translate(30px, -30px) rotate(120deg);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+      }
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--primary-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-color);
+      background: var(--hover-color);
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--primary-text);
+      transition: 0.3s;
+      border-radius: 3px;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 6rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary-text);
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent), var(--tertiary-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        filter: brightness(1);
+      }
+
+      to {
+        filter: brightness(1.2);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--secondary-text);
+      margin-bottom: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: var(--primary-text);
+    }
+
+    /* Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent-color);
+    }
+
+    .card h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--secondary-text);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+      color: var(--primary-bg);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(100, 255, 218, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-color);
+      color: var(--primary-bg);
+    }
+
+    /* Lists */
+    .content-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .content-list li {
+      background: var(--secondary-bg);
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+      border-left: 4px solid var(--accent-color);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .content-list li:hover {
+      transform: translateX(10px);
+      background: var(--hover-color);
+    }
+
+    .content-list li::before {
+      content: '▶';
+      color: var(--accent-color);
+      margin-right: 0.5rem;
+    }
+
+    /* Materials Section */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .material-item {
+      background: var(--secondary-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .material-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-color: var(--accent-color);
+    }
+
+    .material-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .material-item h4 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Schedule Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-color);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+      padding: 0 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .timeline-content {
+      background: var(--secondary-bg);
+      padding: 1.5rem;
+      border-radius: 15px;
+      width: 45%;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-left: 55%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-right: 55%;
+    }
+
+    /* Lives Section */
+    .live-item {
+      background: var(--glass-bg);
+      border: 1px solid var(--secondary-accent);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .live-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    }
+
+    .live-info h4 {
+      color: var(--secondary-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .live-date {
+      color: var(--tertiary-accent);
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      background: var(--secondary-bg);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: var(--glass-bg);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        backdrop-filter: blur(20px);
+        padding: 2rem 0;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 4rem 1rem 2rem;
+        min-height: auto;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+      }
+
+      .timeline-item::before {
+        left: 30px;
+      }
+
+      .live-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Lotus Dark</div>
+      <ul class="nav-menu">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#conteudos" class="nav-link">Conteúdos</a></li>
+        <li><a href="#materiais" class="nav-link">Materiais</a></li>
+        <li><a href="#plano" class="nav-link">Plano</a></li>
+        <li><a href="#lives" class="nav-link">Lives</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1 class="hero-title">Algoritmos e Estruturas de Dados</h1>
+    <p class="hero-subtitle">Ciência da Computação - 2º Período</p>
+    <p class="hero-description">
+      Explore o fascinante mundo dos algoritmos e estruturas de dados fundamentais.
+      Desenvolva habilidades essenciais para resolver problemas complexos de forma eficiente
+      e elegante através de uma abordagem prática e teórica equilibrada.
+    </p>
+    <a href="#sobre" class="btn">Começar Jornada</a>
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre a Disciplina</h2>
+    <p class="section-subtitle">Fundamentos essenciais para o desenvolvimento de software eficiente</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <h3>🎯 Objetivos</h3>
+        <p>Dominar conceitos fundamentais de algoritmos, análise de complexidade e estruturas de dados básicas e
+          avançadas para desenvolvimento de soluções computacionais otimizadas.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Metodologia</h3>
+        <p>Combinação de teoria sólida com prática intensiva. Aulas expositivas, exercícios práticos, projetos
+          individuais e avaliações que simulam desafios reais da programação.</p>
+      </div>
+      <div class="card">
+        <h3>💡 Competências</h3>
+        <p>Análise algorítmica, implementação de estruturas de dados, otimização de código, resolução de problemas
+          computacionais e pensamento lógico estruturado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conteúdos Section -->
+  <section id="conteudos">
+    <h2 class="section-title">Conteúdos Disponíveis</h2>
+    <p class="section-subtitle">Módulos organizados para maximizar seu aprendizado</p>
+
+    <ul class="content-list">
+      <li>Introdução à Análise de Algoritmos</li>
+      <li>Notação Big O e Complexidade</li>
+      <li>Arrays e Listas Lineares</li>
+      <li>Pilhas e Filas</li>
+      <li>Listas Ligadas e Variações</li>
+      <li>Algoritmos de Ordenação</li>
+      <li>Algoritmos de Busca</li>
+      <li>Árvores Binárias e AVL</li>
+      <li>Grafos e Algoritmos</li>
+      <li>Hash Tables e Mapeamento</li>
+      <li>Recursão e Programação Dinâmica</li>
+      <li>Algoritmos Gulosos</li>
+    </ul>
+  </section>
+
+  <!-- Materiais Section -->
+  <section id="materiais">
+    <h2 class="section-title">Materiais de Estudo</h2>
+    <p class="section-subtitle">Recursos diversificados para todos os estilos de aprendizagem</p>
+
+    <div class="materials-grid">
+      <div class="material-item">
+        <div class="material-icon">🎧</div>
+        <h4>Áudios</h4>
+        <p>Podcasts e explicações em áudio</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">📹</div>
+        <h4>Vídeos</h4>
+        <p>Video-aulas e demonstrações práticas</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">📊</div>
+        <h4>Slides</h4>
+        <p>Apresentações das aulas teóricas</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">📝</div>
+        <h4>Resumos</h4>
+        <p>Sínteses dos conteúdos principais</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">⚡</div>
+        <h4>Atividades</h4>
+        <p>Exercícios e projetos práticos</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+      <div class="material-item">
+        <div class="material-icon">📚</div>
+        <h4>Bibliografia</h4>
+        <p>Livros e artigos recomendados</p>
+        <a href="#" class="btn btn-secondary">Acessar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plano Section -->
+  <section id="plano">
+    <h2 class="section-title">Plano de Curso</h2>
+    <p class="section-subtitle">Cronograma detalhado do semestre letivo</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Semanas 1-2: Fundamentos</h4>
+          <p>Introdução aos algoritmos, análise de complexidade e notação Big O</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Semanas 3-5: Estruturas Lineares</h4>
+          <p>Arrays, listas, pilhas e filas. Implementações e aplicações práticas</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Semanas 6-8: Ordenação e Busca</h4>
+          <p>Algoritmos clássicos de ordenação e técnicas de busca eficiente</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Semanas 9-12: Árvores</h4>
+          <p>Estruturas hierárquicas, árvores binárias, balanceamento e aplicações</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h4>Semanas 13-16: Grafos e Avançado</h4>
+          <p>Teoria dos grafos, algoritmos avançados e programação dinâmica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lives Section -->
+  <section id="lives">
+    <h2 class="section-title">Aulas ao Vivo</h2>
+    <p class="section-subtitle">Participe das sessões interativas e tire suas dúvidas em tempo real</p>
+
+    <div class="live-item">
+      <div class="live-info">
+        <h4>Revisão para P1 - Estruturas Básicas</h4>
+        <p>Revisão geral dos conteúdos da primeira unidade</p>
+        <div class="live-date">📅 Segunda, 18/09 - 19:00</div>
+      </div>
+      <a href="#" class="btn">Participar</a>
+    </div>
+
+    <div class="live-item">
+      <div class="live-info">
+        <h4>Workshop: Algoritmos de Ordenação</h4>
+        <p>Implementação prática e comparação de performance</p>
+        <div class="live-date">📅 Quarta, 20/09 - 20:00</div>
+      </div>
+      <a href="#" class="btn">Participar</a>
+    </div>
+
+    <div class="live-item">
+      <div class="live-info">
+        <h4>Plantão de Dúvidas</h4>
+        <p>Sessão aberta para esclarecimentos gerais</p>
+        <div class="live-date">📅 Sexta, 22/09 - 18:00</div>
+      </div>
+      <a href="#" class="btn">Participar</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#" class="btn btn-secondary">Ver Todas as Lives</a>
+    </div>
+  </section>
+
+  <!-- Contato Section -->
+  <section id="contato">
+    <h2 class="section-title">Contato & Dúvidas</h2>
+    <p class="section-subtitle">Estamos aqui para apoiar sua jornada de aprendizagem</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">👨‍🏫</div>
+        <h4>Professor Responsável</h4>
+        <p><strong>Dr. João Silva</strong></p>
+        <p>joao.silva@universidade.edu</p>
+        <p>Sala 301 - Bloco A</p>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕒</div>
+        <h4>Atendimento</h4>
+        <p><strong>Segunda a Sexta</strong></p>
+        <p>14:00 às 18:00</p>
+        <p>Agendamento via email</p>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <h4>Fórum da Disciplina</h4>
+        <p><strong>Discord/Slack</strong></p>
+        <p>Discussões e dúvidas</p>
+        <a href="#" class="btn btn-secondary">Participar</a>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <h4>Lista de Emails</h4>
+        <p><strong>Comunicação Oficial</strong></p>
+        <p>algoritmos2024@listas.edu</p>
+        <p>Avisos importantes</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="#" class="btn">Enviar Mensagem</a>
+    </div>
+  </section>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }));
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+      } else {
+        navbar.style.background = 'rgba(42, 42, 42, 0.8)';
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Apply animation to cards and timeline items
+    document.querySelectorAll('.card, .timeline-item, .material-item, .live-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Add floating animation to cards on hover
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) rotateX(5deg)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) rotateX(0)';
+      });
+    });
+  </script>
+</body>
+
+</html>
