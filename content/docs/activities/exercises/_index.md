@@ -1,7 +1,7 @@
 ---
 weight: 200
 title: "Exercicios"
-description: "Example content"
+description: "Coleção de exercícios práticos e desafios para reforço dos conteúdos da disciplina"
 icon: "folder"
 date: "2025-09-15T00:34:57+01:00"
 lastmod: "2025-09-15T00:34:57+01:00"
